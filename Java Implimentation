@@ -1,0 +1,42 @@
+
+public class RotateString {
+	
+	public static String rotate(String s) {
+		if(s.length() < 1) {
+			return "Input Valid String";
+		}
+		return rotateRec(s,1);
+	}
+	
+	private static String rotateRec(String s, int c) {
+		
+		if(c == s.length()) {
+			
+			char first_L = s.charAt(0);
+			
+			String s1 = s.substring(1) + first_L;
+			
+			return s1;
+		}
+		
+		char first_L = s.charAt(0);
+		
+		String s1 = s.substring(1) + first_L;
+		
+		return s1 + " " + rotateRec(s1,c+1);
+	}
+}
+
+
+public class Driver {
+
+	public static void main(String[] args) {
+		
+		RotateString x = new RotateString();
+		
+		System.out.println(x.rotate("h"));
+
+	}
+
+}
+
